@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sena Nur - Yazılım Mühendisi Portfolyo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* GENEL TASARIM VE RENKLER */
+        :root {
+            --color-dark: #1a1a1a;
+            --color-medium-dark: #2a2a2a;
+            --color-light-dark: #3a3a3a;
+            --color-text-light: #e0e0e0;
+            /* YENİ PROFESYONEL VURGU RENKLERİ */
+            --color-accent-primary: #00BCD4;
+            /* Turkuaz/Camgöbeği - Ana Vurgu */
+            --color-accent-secondary: #FFC107;
+            /* Altın Sarısı - İkincil Vurgu/Skill */
+            --color-accent-blue: #2196F3;
+            /* Mavi (Proje 1'deki gibi kalsın) */
+
+            --font-primary: 'Arial', sans-serif;
+            --font-secondary: 'Verdana', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-text-light);
+            background-color: var(--color-dark);
+            line-height: 1.6;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER VE HERO SECTION */
+        header {
+            background-color: var(--color-medium-dark);
+            padding: 100px 0 80px;
+            text-align: center;
+            border-bottom: 2px solid var(--color-light-dark);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.1em;
+            color: var(--color-text-light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.3em;
+            color: var(--color-accent-primary);
+            /* KIRMIZI DEĞİŞTİ */
+            font-family: var(--font-secondary);
+        }
+
+        /* SECTION STİLLERİ */
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--color-accent-primary);
+            /* KIRMIZI DEĞİŞTİ */
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-accent-primary);
+            /* KIRMIZI DEĞİŞTİ */
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* PROJELER GRIDİ */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: var(--color-medium-dark);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+        }
+
+        /* KARUSEL STİLLERİ - Değişiklik yok */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            /* Görsel yüksekliği */
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-in;
+            /* Büyütülebilir olduğunu belirtir */
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: var(--color-text-light);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            z-index: 10;
+            border-radius: 5px;
+        }
+
+        .carousel-control.prev {
+            left: 10px;
+        }
+
+        .carousel-control.next {
+            right: 10px;
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            /* İçeriğin kartın kalanını doldurmasını sağlar */
+        }
+
+        .project-content h3 {
+            color: var(--color-accent-blue);
+            /* Proje başlığı, mavi olarak kaldı */
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--color-light-dark);
+            padding-bottom: 10px;
+        }
+
+        .cta-link {
+            display: inline-block;
+            background: var(--color-accent-primary);
+            /* KIRMIZI DEĞİŞTİ */
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-link:hover {
+            background: #0096a9;
+            /* YENİ HOVER RENGİ - Daha koyu Turkuaz */
+        }
+
+        /* YETENEKLER */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-group {
+            background: var(--color-medium-dark);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-group h3 {
+            color: var(--color-accent-secondary);
+            /* TURUNCU DEĞİŞTİ */
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .skill-group ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--color-text-light);
+        }
+
+        .skill-group li {
+            padding: 8px 0;
+            font-size: 1.1em;
+        }
+
+        .skill-group li i {
+            margin-right: 10px;
+            color: var(--color-accent-primary);
+            /* KIRMIZI DEĞİŞTİ */
+        }
+
+        /* FOOTER - Değişiklik yok */
+        footer {
+            background-color: var(--color-dark);
+            padding: 30px;
+            text-align: center;
+            border-top: 2px solid var(--color-light-dark);
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #bbb;
+            font-size: 0.95em;
+            margin: 0;
+        }
+
+        /* MODAL/LIGHTBOX STİLLERİ - Değişiklik yok */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>SENA NUR ÖZDEMİR - YAZILIM MÜHENDİSİ</h1>
+            <p>Modern, ölçeklenebilir ve kullanıcı odaklı yazılım çözümleri üreten Full-Stack geliştirici.</p>
+        </div>
+    </header>
+
+    <section id="hakkimda">
+        <div class="container">
+            <h2>Hakkımda</h2>
+            <p style="text-align: center; color: var(--color-text-light); font-size: 1.1em;">
+                <i class="fas fa-code me-2"></i>
+                Ben Sena Nur Özdemir; kullanıcı deneyimini merkeze alan arayüzler geliştiren, performanslı frontend
+                yapıları ile güçlü backend mimarilerini bir araya getiren bir yazılım mühendisiyim.
+                Her projeye bir ürün yaklaşımıyla bakar, ihtiyacı doğru analiz edip sürdürülebilir, güvenilir ve yalın
+                çözümler üretmeyi hedeflerim.
+                Modern teknolojileri takip etmeyi, sürekli öğrenmeyi ve geliştirdiğim her uygulamada daha iyi bir
+                deneyim sunmayı öncelik haline getiririm.
+            </p>
+        </div>
+    </section>
+
+    <section id="projeler">
+        <div class="container">
+            <h2>Öne Çıkan Projelerim</h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="carousel" id="carousel-dishane">
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto18.png" alt="DişHane Kayıt Olma Paneli"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto14.png" alt="DişHane Admin Paneli" onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto15.png" alt="DişHane Admin İstatistik Paneli"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto16.png" alt="DişHane Admin İstatistik Paneli Devamı"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto17.png" alt="DişHane Admin Personel İşlemleri Kısmı"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto1.png" alt="DişHane Doktor Paneli" onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto2.png" alt="DişHane Doktor Paneli Randevu Takvimi"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto3.png" alt="DişHane Doktor Paneli Malzeme kullanımı"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto4.png" alt="DişHane Doktor Paneli Tıbbi Kayıtlar"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto5.png" alt="DişHane Sekreter Paneli" onclick="openModal(this)">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto6.png" alt="DişHane Sekreter Paneli Tıbbi Kayıt Ekleme Kısmı"
+                                    onclick="openModal(this)">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto7.png" alt="DişHane Sekreter Paneli Doktor Çalışma Saatleri"
+                                    onclick="openModal(this)">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto8.png" alt="DişHane Sekreter Paneli Randevular Kısmı"
+                                    onclick="openModal(this)">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto9.png" alt="DişHane Sekreter Paneli Stok Malzeme Yönetimi"
+                                    onclick="openModal(this)">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto10.png"
+                                    alt="DişHane Sekreter Paneli Stok Malzeme Yönetimi Devamı"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto11.png"
+                                    alt="DişHane Sekreter Paneli Günlük Malzeme Kullanım Özeti"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto12.png" alt="DişHane Hasta Paneli" onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/dishanefoto13.png" alt="DişHane Hasta Paneli Randevu Alma Kısmı"
+                                    onclick="openModal(this)">
+                            </div>
+
+                        </div>
+                        <button class="carousel-control prev"
+                            onclick="moveCarousel('carousel-dishane', -1)">&#10094;</button>
+                        <button class="carousel-control next"
+                            onclick="moveCarousel('carousel-dishane', 1)">&#10095;</button>
+                    </div>
+                    <div class="project-content">
+                        <h3>🦷 DİŞHANE - Full-Stack Klinik Yönetim Yazılımı</h3>
+                        <p>
+                            **Lisans Bitirme Projemdir.** PHP (MVC) ve MySQL ile sıfırdan geliştirilmiş, Doktor,
+                            Sekreter, Admin ve Hasta rolleri içeren tam kapsamlı yönetim yazılımıdır. Gelişmiş
+                            yetkilendirme ve veri yönetimi yetkinliğimi kanıtlar.
+                        </p>
+                        <a href="https://github.com/senathecoder/DisHane" target="_blank" class="cta-link">GitHub'da
+                            İncele (Full-Stack)</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="carousel" id="carousel-voiscope">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img src="img/voiscope1.png" alt="Voiscope İlk Kısım" onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/voiscope2.png" alt="Voiscope Carousel" onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/voiscope3.png" alt="Voiscope ASR Demo Kısmı" onclick="openModal(this)">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="img/voiscope4.png" alt="Voiscope Ürünler Demo Kısmı"
+                                    onclick="openModal(this)">
+                            </div>
+                        </div>
+                        <button class="carousel-control prev"
+                            onclick="moveCarousel('carousel-voiscope', -1)">&#10094;</button>
+                        <button class="carousel-control next"
+                            onclick="moveCarousel('carousel-voiscope', 1)">&#10095;</button>
+                    </div>
+                    <div class="project-content">
+                        <h3>🎤 VOISCOPE - Gelişmiş UI/UX ve Etkileşim Tasarımı</h3>
+                        <p>
+                            **Zorunlu Staj Projesi** (Ar-Ge). Ses Teknolojileri ürünlerini sergilemek için modern bir
+                            Front-End arayüzü tasarladım. Özel 3D Karusel, gelişmiş CSS transform ve Vanilla JS ile
+                            dinamik galeri yönetimi içerir.
+                        </p>
+                        <a href="https://github.com/senathecoder/voiscope" target="_blank" class="cta-link"
+                            style="background: #337ab7;">GitHub'da İncele (Staj Projesi)</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="carousel" id="carousel-hotel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img src="img/hotelfoto1.png" alt="Hotel Bozooğulları Ana Sayfa"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hotelfoto2.png" alt="Hotel Bozooğulları Hakkımızda"
+                                    onclick="openModal(this)">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hotelfoto3.png" alt="Hotel Bozooğulları Ana Sayfa Galeri Kısmı"
+                                    onclick="openModal(this)">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="img/hotelfoto4.png" alt="Hotel Bozooğulları Galeri" onclick="openModal(this)">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="img/hotelfoto5.png" alt="Hotel Bozooğulları Odalar" onclick="openModal(this)">
+                            </div>
+
+                            <div class="carousel-item">
+                                <img src="img/hotelfoto6.png" alt="Hotel Bozooğulları Footer" onclick="openModal(this)">
+                            </div>
+                        </div>
+                        <button class="carousel-control prev"
+                            onclick="moveCarousel('carousel-hotel', -1)">&#10094;</button>
+                        <button class="carousel-control next"
+                            onclick="moveCarousel('carousel-hotel', 1)">&#10095;</button>
+                    </div>
+                    <div class="project-content">
+                        <h3>🏨 HOTEL BOZOOĞULLARI - Kurumsal Web Tasarımı</h3>
+                        <p>
+                            HTML, CSS ve JavaScript kullanılarak geliştirilmiş, mobil uyumlu otel sitesidir.
+                            Scroll'a duyarlı navigasyon, akıcı animasyonlar ve Galeri Filtreleme gibi modern Front-End
+                            tekniklerini sergiler.
+                        </p>
+                        <a href="https://github.com/senathecoder/hotel-bozoogullari-website" target="_blank"
+                            class="cta-link" style="background: #f0ad4e;">GitHub'da İncele (Tasarım)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="yetenekler" style="background: var(--color-medium-dark);">
+        <div class="container">
+            <h2>Temel Yetkinlikler (Skills)</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3><i class="fas fa-server"></i> Backend & Mimari</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> PHP</li>
+                        <li><i class="fas fa-check-circle"></i> MySQL & Veri Modelleme</li>
+                        <li><i class="fas fa-check-circle"></i> MVC (Model-View-Controller)</li>
+                        <li><i class="fas fa-check-circle"></i> Yetkilendirme (Auth/Authz)</li>
+                        <li><i class="fas fa-check-circle"></i> C# Programlama Dili</li>
+                        <li><i class="fas fa-check-circle"></i> ASP.NET</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3><i class="fas fa-palette"></i> Front-End & Tasarım</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> HTML5 / CSS3 (Responsive Design)</li>
+                        <li><i class="fas fa-check-circle"></i> JavaScript </li>
+                        <li><i class="fas fa-check-circle"></i> UI/UX Prensipleri</li>
+                        <li><i class="fas fa-check-circle"></i> 3D CSS / JS Etkileşimleri</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3><i class="fas fa-tools"></i> Araçlar & Diğer</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Git & GitHub</li>
+                        <li><i class="fas fa-check-circle"></i> XAMPP / Localhost</li>
+                        <li><i class="fas fa-check-circle"></i> Problem Çözme</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color: var(--color-dark); padding: 30px; text-align: center;">
+        <div class="container">
+            <p style="color: #bbb; font-size: 0.95em; margin: 0;">&copy; Sena Nur Özdemir. Yazılım Mühendisi. İletişim:
+                senanur72@icloud.com
+            </p>
+            <div style="margin-top: 15px;">
+                <a href="https://github.com/senathecoder" target="_blank"
+                    style="color: var(--color-text-light); font-size: 1.5em; margin: 0 10px;"><i
+                        class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+
+    <script>
+        // Carousel JavaScript Mantığı
+        function moveCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const inner = carousel.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            const itemWidth = items[0].clientWidth; // Her bir öğenin genişliği
+
+            let currentIndex = parseInt(inner.dataset.currentIndex || 0);
+
+            currentIndex = (currentIndex + direction + items.length) % items.length;
+            inner.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+            inner.dataset.currentIndex = currentIndex;
+        }
+
+        // Her carousel için başlangıç index'ini ayarla
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.carousel-inner').forEach(inner => {
+                inner.dataset.currentIndex = 0;
+            });
+        });
+
+        // Modal JavaScript Mantığı
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+
+        function openModal(imgElement) {
+            modal.style.display = "block";
+            modalImg.src = imgElement.src;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
