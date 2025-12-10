@@ -33,10 +33,16 @@ Kullanıcılar site üzerinden:
 
 ## Proje Görselleri
 
-### Ana Sayfa
+<img width="1897" height="912" alt="portfolyofoto3" src="https://github.com/user-attachments/assets/8e704324-4034-4c69-9b38-61ad4a4e2d5d" />
 
 ### Projeler Sayfası
 
+<img width="1896" height="917" alt="portfolyofoto" src="https://github.com/user-attachments/assets/1321f4a9-1a10-4946-bb0a-9bee6b6011c4" />
+
+
+### Beceriler Sayfası
+
+<img width="1900" height="916" alt="portfolyofoto2" src="https://github.com/user-attachments/assets/5fa54cd6-2875-4e41-83e8-34d384f39d1a" />
 
 ---
 
@@ -57,7 +63,7 @@ git clone https://github.com/sena-nur-ozdemir/sena-nur-ozdemir-portfolio.git
 
 **img/** – Görseller ve ikonlar
 
---
+---
 
 ## İletişim
 
