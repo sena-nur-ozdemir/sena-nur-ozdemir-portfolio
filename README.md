@@ -1,15 +1,19 @@
 # Sena Nur Özdemir Portfolio
 
-> Kişisel portföy web sitem. Projelerim, becerilerim ve iletişim bilgilerimi içerir. Modern ve responsive tasarım ile kullanıcı dostu bir deneyim sunar.
+> Bu portföy sitesi, kısa sürede (yaklaşık yarım saatte) projelerimi sergilemek amacıyla oluşturulmuş bir web sitesidir.  
+> Amacı, yaptığım çalışmaları bir araya toplamak ve temel becerilerimi göstermek için bir referans sunmaktır.
 
 ---
 
 ## Proje Hakkında
-Bu portföy sitesi, **benim çalışmalarımı ve projelerimi sergilemek için** hazırlanmıştır.  
+Portföy sitesi, **benim yaptığım projeleri, teknik becerilerimi ve iletişim bilgilerimi sergilemek** için hazırlanmıştır.  
 Kullanıcılar site üzerinden:
+
 - Yaptığım projeleri inceleyebilir  
 - Teknik becerilerimi görebilir  
-- Bana iletişim formu üzerinden ulaşabilir  
+- Bana iletişim formu veya iletişim bilgilerim üzerinden ulaşabilir  
+
+> Not: Bu proje, bir şirket talebi doğrultusunda hızlıca hazırlanmış bir çalışma niteliğindedir ve temel işlevselliğe odaklanmıştır.
 
 ---
 
