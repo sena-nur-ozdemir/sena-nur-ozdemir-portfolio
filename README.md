@@ -59,10 +59,11 @@ git clone https://github.com/sena-nur-ozdemir/sena-nur-ozdemir-portfolio.git
 
 --
 
-İletişim
+## İletişim
 
-E-posta: senanur72@icloud.com
+- E-posta: [senanur72@icloud.com](mailto:senanur72@icloud.com)  
 
-LinkedIn: Sena Nur Özdemir
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/sena-nur-ozdemirr/)
 
-GitHub: sena-nur-ozdemir
+- GitHub: [GitHub](https://github.com/sena-nur-ozdemir)
+
