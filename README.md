@@ -35,10 +35,6 @@ Kullanıcılar site üzerinden:
 
 ---
 
-## Proje Görselleri
-
-<img width="1897" height="912" alt="portfolyofoto3" src="https://github.com/user-attachments/assets/8e704324-4034-4c69-9b38-61ad4a4e2d5d" />
-
 ### Projeler Sayfası
 
 <img width="1896" height="917" alt="portfolyofoto" src="https://github.com/user-attachments/assets/1321f4a9-1a10-4946-bb0a-9bee6b6011c4" />
